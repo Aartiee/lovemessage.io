@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You Booboo</title>
+    <style>
+        body {
+            font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+            background-color: #ffe6f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .love-container {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+            text-align: center;
+            max-width: 400px;
+            position: relative;
+            z-index: 1;
+        }
+        .love-text {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff69b4;
+            margin: 10px 0;
+        }
+        .heart {
+            color: #ff69b4;
+            font-size: 50px;
+            margin: 20px 0;
+            animation: pulse 1s infinite;
+        }
+        .floating {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.7;
+            animation: float 6s infinite;
+        }
+        .puppy {
+            font-size: 50px;
+            margin-top: 20px;
+            animation: walk 4s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes walk {
+            0%, 100% { transform: translateX(-50px); }
+            50% { transform: translateX(50px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="love-container">
+        <div class="love-text">I Love You</div>
+        <div class="love-text">Booboo</div>
+        <div class="heart">&#10084;</div>
+        <div class="puppy">🐶💕</div>
+    </div>
+    <script>
+        function createFloatingElement(emoji) {
+            const el = document.createElement('div');
+            el.className = 'floating';
+            el.style.left = `${Math.random() * 100}vw`;
+            el.style.top = `${Math.random() * 100}vh`;
+            el.style.animationDuration = `${6 + Math.random() * 4}s`;
+            el.textContent = emoji;
+            document.body.appendChild(el);
+        }
+
+        const emojis = ['❤️', '😘', '🥰', '💖', '💕', '💓', '💗', '💘', '💝'];
+        emojis.forEach(emoji => {
+            createFloatingElement(emoji);
+            createFloatingElement(emoji);
+        });
+    </script>
+</body>
+</html>
